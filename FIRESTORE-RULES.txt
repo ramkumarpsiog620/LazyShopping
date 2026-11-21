@@ -1,0 +1,19 @@
+IMPORTANT SECURITY NOTE
+-----------------------
+The role check in JavaScript is only for navigation and user experience. It is NOT security.
+Before using this project with real customers, configure Firestore Security Rules so that:
+1. A signed-in user can read/write only their own cart and profile.
+2. Only a trusted administrator can create/update/delete products, categories, and change order statuses.
+3. Customers cannot write or change their own role to "admin".
+4. Customer profiles and orders cannot be read by unrelated customers.
+
+The current sample frontend uses Firebase Authentication REST API and stores the signed-in user's ID token in sessionStorage. Firestore Rules must validate request.auth.uid and trusted role data. Do not deploy permissive test rules or expose admin access based only on a browser-side role value.
+
+Admin bootstrap:
+- Create an account through the registration tab.
+- In Firebase Console > Firestore Database, open userProfiles.
+- Find the document whose document ID is that account's Firebase Authentication UID.
+- Change its role field from "user" to "admin" manually using the Firebase Console.
+- Sign out and sign in again.
+
+Existing seeded records in the `users` collection are customer contact records only. They are not Firebase Authentication accounts. Customers must register through the login page to sign in. The userProfiles collection is separate and stores login profile/role data.

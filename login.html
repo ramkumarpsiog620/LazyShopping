@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LazyShopping | Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-brand">
+      <div class="brand-mark">S</div>
+      <p class="eyebrow">SHOP EASIER. LIVE BETTER.</p>
+      <h1>Everything you need, in one place.</h1>
+      <p class="brand-copy">Welcome to LazyShopping. Sign in to continue shopping or manage your store.</p>
+      <div class="brand-foot">LazyShopping · E-Commerce</div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <p class="eyebrow dark">WELCOME TO LazyShopping</p>
+        <h2 id="formTitle">Sign in</h2>
+        <p class="muted" id="formSubtitle">Enter your account details to continue.</p>
+
+        <div class="tabs">
+          <button class="tab active" id="loginTab" type="button">Login</button>
+          <button class="tab" id="signupTab" type="button">Create account</button>
+        </div>
+
+        <form id="authForm">
+          <label id="nameLabel" class="hidden">Full name
+            <input id="name" type="text" autocomplete="name" placeholder="Your full name">
+          </label>
+          <label>Email address
+            <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          </label>
+          <label>Password
+            <input id="password" type="password" autocomplete="current-password" placeholder="At least 6 characters" minlength="6" required>
+          </label>
+          <button class="primary-btn" id="submitBtn" type="submit">Sign in</button>
+        </form>
+        <p id="message" class="message" aria-live="polite"></p>
+        <p class="small-note">Administrator access is assigned by the project owner. New registrations are customer accounts.</p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
